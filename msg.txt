@@ -1,0 +1,13 @@
+Name	:	janaki
+Email	:	janakivanjarapu1234@gmail.com
+Mobile	:	6303033120
+Address	:	0 mylavaram
+Date	:	2023-05-05 15:56:48.974749
+No of pages	:	1
+No of copies	:	1
+Type	:	black and white
+Paper Type	:	a4
+Sides	:	one side
+Price	:	10
+Discount	:	3.0
+Amount	:	7

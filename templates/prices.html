@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% block title %}prices{% endblock title %}
+{% block style %}
+html {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+thead th,
+tfoot th {
+  font-family: "Rock Salt", cursive;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th,
+td {
+  padding: 20px;
+}
+{% endblock style %}
+{% block links %}{% endblock links %}
+{% block body %}
+
+<table>
+    
+  <thead>
+    <tr>
+      <th scope="col">Paper Type</th>
+      <th scope="col">Colour</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">A4</th>
+      <td>Black and White</td>
+      <td>3</td>
+
+    </tr>
+    <tr>
+      <th scope="row">Book</th>
+      <td>Black and white</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th scope="row">Picture</th>
+      <td>Black and white</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">A4</th>
+      <td>Colour</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">Book</th>
+      <td>Colour</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">Picture</th>
+      <td>Colour</td>
+      <td>60</td>
+    </tr>
+    
+  </tbody>
+ 
+</table>
+{% endblock body %}
+<!--
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PrintingPress</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link> </link>
+  </head>
+  <body>
+
+    <style>
+      *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      nav{
+        width: 100%;
+        height: 75px;
+        background-color: #3D0649;
+        line-height: 75px;
+        padding:0px 100px;
+        position:fixed;
+        z-index: 1;
+      }
+      nav ul{
+        float: right;
+      }
+      nav ul li{
+        display: inline-block;
+        list-style: none;
+      }
+      nav ul li a{
+        color:#FFFF;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 150;
+        text-transform: uppercase;
+        padding:0px 32px;
+        margin-top: 0px;
+      }
+      nav ul li a:hover{
+        color:#c0d96f;
+      }
+      nav ul li .active{
+        color:#c0d96f;
+      }
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: lightblue;
+          margin: 0;
+          padding:0 0;
+          display: flex;
+          justify-content: center;
+      }
+      
+      .page{
+          padding:5% 5%;
+          text-align: left;
+          background-color:aliceblue;
+          font-weight: bold;
+          word-spacing: 0%;
+          height:100%;
+          width:40%;
+         
+      }
+      input[type=tel]{
+          width: 515px;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+      }
+  
+      .mob,select,input[type=file],input[type=text],input[type=tel],input[type=email],input[type=password] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+      }
+      
+      .mob,select:focus,input[type=text]:focus,input[type=text]:focus,input[type=tel]:focus,input[type=email]:focus,input[type=password]:focus{
+          outline: none;
+      }
+      button {
+          background-color: #164e10;
+          color: white;
+          padding: 14px 20px;
+          margin-bottom: 20px;
+          margin: 8px 0;
+
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          font-weight: bold;
+      }
+
+      button:hover {
+          opacity: 0.8;
+      }
+
+     
+
+      .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+      }
+      .container {
+          padding: 16px;
+      }
+      .in{
+        float:left;
+      }
+      
+  </style>
+
+  <style>
+
+    html {
+      font-family: "helvetica neue", helvetica, arial, sans-serif;
+    }
+    
+    thead th,
+    tfoot th {
+      font-family: "Rock Salt", cursive;
+    }
+    
+    th {
+      letter-spacing: 2px;
+    }
+    
+    td {
+      letter-spacing: 1px;
+    }
+    
+    tbody td {
+      text-align: center;
+    }
+    
+    tfoot th {
+      text-align: right;
+    }
+  </style>
+  <style>
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid purple;
+    }
+    
+    thead th:nth-child(1) {
+      width: 30%;
+    }
+    
+    thead th:nth-child(2) {
+      width: 20%;
+    }
+    
+    thead th:nth-child(3) {
+      width: 15%;
+    }
+    
+    thead th:nth-child(4) {
+      width: 35%;
+    }
+    
+    th,
+    td {
+      padding: 20px;
+    }
+  </style>
+  </head>
+  <body>
+    
+    <nav>
+      <ul>
+      <li>
+     <li> <a href="/">Home</a></li>
+      {% if not user.is_authenticated  %} 
+     <li> <a href="/login">login</a></li>
+    <li>  <a href="/signup">signup</a></li>
+      {% else %}
+      <li> <a href="logouthand/">logout</a></li>
+     <li> <a href="history/">history</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  
+  <table>
+    
+    <thead>
+      <tr>
+        <th scope="col">Paper Type</th>
+        <th scope="col">Colour</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">A4</th>
+        <td>Black and White</td>
+        <td>3</td>
+  
+      </tr>
+      <tr>
+        <th scope="row">Book</th>
+        <td>Black and white</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <th scope="row">Picture</th>
+        <td>Black and white</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <th scope="row">A4</th>
+        <td>Colour</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <th scope="row">Book</th>
+        <td>Colour</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <th scope="row">Picture</th>
+        <td>Colour</td>
+        <td>60</td>
+      </tr>
+      
+    </tbody>
+   
+  </table>
+  Copy to Clipboard
+  
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block title %}history{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+{% endblock links %}
+
+
+
+{% block body %}
+<table style="border:3px solid purple" class="table table-hover">
+  <thead>
+    <tr style="background-color: aqua;">
+      <th scope="col">File</th>
+      <th scope="col">No of Copies</th>
+      <th scope="col">Type</th>
+      <th scope="col">Paper</th>
+      <th scope="col">Sides</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--{{dict}} -->
+    {% for i in dict %}
+    <tr>
+      <td scope="row">{{i.file}}</td>
+      <td scope="row">{{i.no_of_copies}}</td>
+      <td scope="row">{{i.type}}</td>
+      <td scope="row">{{i.paper}}</td>
+      <td scope="row">{{i.sides}}</td>
+      <td scope="row">{{i.payment}}</td>  
+      <td scope="row">{{i.name_of_pub}}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock body %}

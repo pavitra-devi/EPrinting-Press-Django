@@ -1,0 +1,237 @@
+
+<!--
+    {% extends 'base.html' %}
+    {% block title %}orderpage{% endblock title %}
+    {% block links %}
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}"> 
+    
+    {% endblock links %}
+    
+    {% block style %}
+    
+    .vh10{
+      font-size: 30px;
+    }
+    .divider:after,
+    .divider:before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+    .h-custom {
+      height: calc(100% - 73px);
+    }
+    @media (max-width: 450px) {
+    .h-custom {
+      height: 100%;
+    }
+    }
+    {% endblock style %}
+    {% block body %}
+    {%load static%}
+    <section class="vh-100">
+      <div class="container-fluid h-custom fs-">
+        <div class="row d-flex justify-content-center align-items-center h-100 fw-bold " >
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid" alt="Sample image">
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+             <form method="post" action="/PageObjects" class="material-form">
+              {% csrf_token %}
+              
+              <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                <p class="lead mb-0 me-3"><b style="font-size:24px !important">Order</b></p>
+              </div>
+              <p class="form-label" style="color:red";>{{var}}</p>
+              {% for entry in form %}
+              
+              <div class="form-outline mb-4">
+      <div class="form-label">
+        
+        {{entry.label_tag}}
+        <br>
+      </div>
+      <div class="form-control form-control-lg">
+        {{entry}}
+      </div>
+      {% endfor %}
+              
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg"
+          style="padding-left: 2.5rem; padding-right: 2.5rem;" id="login-submit" name="login" onClick="check_u_and_p()"><span id="login-text">Order now</span>
+        <span id="login-load" style="display:none;"><i class="fa fa-circle-o-notch fa-spin"></i> Loading...</span></button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+    {% endblock body %}
+    
+    
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PrintingPress</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <style>
+          *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+          }
+          nav{
+            width: 100%;
+            height: 75px;
+            background-color: #3D0649;
+            line-height: 75px;
+            padding:0px 100px;
+            position:fixed;
+            z-index: 1;
+          }
+          nav ul{
+            float: right;
+          }
+          nav ul li{
+            display: inline-block;
+            list-style: none;
+          }
+          nav ul li a{
+            color:#FFFF;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 150;
+            text-transform: uppercase;
+            padding:0px 32px;
+            margin-top: 0px;
+          }
+          nav ul li a:hover{
+            color:#c0d96f;
+          }
+          nav ul li .active{
+            color:#c0d96f;
+          }
+          body {
+              font-family: Arial, Helvetica, sans-serif;
+              background-color: lightblue;
+              margin: 0;
+              padding:0 0;
+              display: flex;
+              justify-content: center;
+          }
+          
+          .page{
+              padding:5% 5%;
+              text-align: left;
+              background-color:aliceblue;
+              font-weight: bold;
+              word-spacing: 0%;
+              height:100%;
+              width:40%;
+             
+          }
+          input[type=tel]{
+              width: 515px;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+          }
+      
+          .mob,select,input[type=file],input[type=text],input[type=tel],input[type=email],input[type=password] {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+          }
+          
+          .mob,select:focus,input[type=text]:focus,input[type=text]:focus,input[type=tel]:focus,input[type=email]:focus,input[type=password]:focus{
+              outline: none;
+          }
+          button {
+              background-color: #164e10;
+              color: white;
+              padding: 14px 20px;
+              margin-bottom: 20px;
+              margin: 8px 0;
+    
+              border: none;
+              cursor: pointer;
+              width: 100%;
+              font-weight: bold;
+          }
+    
+          button:hover {
+              opacity: 0.8;
+          }
+    
+         
+    
+          .imgcontainer {
+              text-align: center;
+              margin: 24px 0 12px 0;
+          }
+          .container {
+              padding: 16px;
+          }
+          .in{
+            float:left;
+          }
+          
+      </style>
+      </head>
+      <body>
+        <nav>
+          <ul>
+          <li>
+         <li> <a href="/">Home</a></li>
+          {% if not user.is_authenticated  %} 
+         <li> <a href="/login">login</a></li>
+        <li>  <a href="/signup">signup</a></li>
+          {% else %}
+          <li> <a href="logouthand/">logout</a></li>
+         <li> <a href="history/">history</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    <div class="page">
+    <form action="/PageObjects" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="imgcontainer">
+        <h2><b>Order</b></h2>
+        <p style="color:red;" >{{var}}</p>
+      </div>
+      <div class="container text-center">
+      {% for entry in form %}
+      <div class="in">
+        
+        {{entry.label_tag}}
+        <br>
+      </div>
+      <div class="le">
+        {{entry}}
+      </div>
+      {% endfor %}
+      <button type="submit" >Order now</button>
+    </script>
+    </div>
+    
+    </form>
+    </div>
+      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        
+    </body>
+    </html>-->
